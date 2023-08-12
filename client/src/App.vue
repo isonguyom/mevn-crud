@@ -21,7 +21,8 @@
     </form>
     <div class="todo-wrapper">
       <h2 class="caption">Todo List</h2>
-      <ul>
+      <div v-if="todos.length < 1">Todo list is empty</div>
+      <ul v-else>
         <li class="todo-item" v-for="(todo, i) in todos" :key="todo._id">
           <div class="todo">
             <h3 class="todo-title">{{ todo.title }}</h3>
