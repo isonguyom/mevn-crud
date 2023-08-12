@@ -6,6 +6,8 @@ const router = Router();
 
 router
   .route("/")
+
+  // Get all todos in the database
   .get(async (_req, res) => {
     try {
       const todoList = await Todo.find();
@@ -16,10 +18,11 @@ router
     }
   })
 
+  //Post request creates a new todo in the database
   .post(async (req, res) => {
-    const newTodo = new Todo(req.body);
+    const newTodo = new Todo(req.body); // create a new instance of the Todo model
     try {
-      const todo = await newTodo.save();
+      const todo = await newTodo.save(); // Save created todo
       if (!todo) throw new Error("Something went wrong saving the Todo");
       res.status(200).json(todo);
     } catch (error) {
@@ -29,6 +32,8 @@ router
 
 router
   .route("/:id")
+
+  // Update the todo with the given id
   .put(async (req, res) => {
     const { id } = req.params;
     try {
@@ -40,6 +45,7 @@ router
     }
   })
 
+  // Delete the todo with the given id
   .delete(async (req, res) => {
     const { id } = req.params;
     try {
@@ -51,6 +57,7 @@ router
     }
   })
 
+  // Get the todo with the given id
   .get(async (req, res) => {
     const { id } = req.params;
     try {
