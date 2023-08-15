@@ -58,7 +58,4 @@ npm start
 ```
 
 ## Preview
-<video autoplay loop muted playsinline>
-  <source src="https://github.com/isonguyom/mevn-crud/assets/52254145/4325ad81-e4c6-4ae0-a295-7690f0953c7e" type="video/webm">
-</video>
 [preview.webm](https://github.com/isonguyom/mevn-crud/assets/52254145/4325ad81-e4c6-4ae0-a295-7690f0953c7e)
