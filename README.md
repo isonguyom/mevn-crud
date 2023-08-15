@@ -50,6 +50,7 @@ Add `MONGO_URI` and preferred `PORT` to your `.env` file
 ```
 npm run dev
 ```
+[preview.webm](https://github.com/isonguyom/mevn-crud/assets/52254145/4325ad81-e4c6-4ae0-a295-7690f0953c7e)
 
 ## Run in production:
 ```
