@@ -55,5 +55,3 @@ npm run dev
 ```
 npm start
 ```
-
-![App preview](preview.webm)
