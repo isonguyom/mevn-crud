@@ -43,7 +43,7 @@ Create a `.env` file in the `server` folder and the following:
 MONGO_URI='<mongdb_uri>'
 PORT=3000
 ```
-Add `MONGO_URI` and preferred PORT to your `.env` file
+Add `MONGO_URI` and preferred `PORT` to your `.env` file
 
 
 ## Run in dev:
@@ -55,3 +55,5 @@ npm run dev
 ```
 npm start
 ```
+
+![App preview](preview.webm)
