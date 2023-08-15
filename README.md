@@ -13,3 +13,30 @@ Clone Repo:
 ```
 git clone https://github.com/isonguyom/mevn-crud.git
 ```
+
+Enter the server directory:
+```
+cd mevn-crud/server
+```
+
+Install dependencies:
+```
+npm install
+```
+
+Create a `.env` file in the `server` folder and the following:
+```
+MONGO_URI='<mongdb_uri>'
+PORT=3000
+```
+Generate a MongoDB Atlas and add it to your `.env` file, you can also use your preferred PORT
+
+Run in dev:
+```
+npm run dev
+```
+
+Run in production:
+```
+npm start
+```
