@@ -20,6 +20,7 @@ Enter the root directory:
 cd mevn-crud
 ```
 
+
 ### Install dependencies
 Install client dependencies:
 ```
@@ -46,6 +47,7 @@ PORT=3000
 Add `MONGO_URI` and preferred `PORT` to your `.env` file
 
 
+
 ## Run in dev:
 ```
 npm run dev
@@ -56,6 +58,7 @@ npm run dev
 ```
 npm start
 ```
+
 
 ## Preview
 [preview.webm](https://github.com/isonguyom/mevn-crud/assets/52254145/4325ad81-e4c6-4ae0-a295-7690f0953c7e)
