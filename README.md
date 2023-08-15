@@ -31,12 +31,13 @@ PORT=3000
 ```
 Generate a MongoDB Atlas and add it to your `.env` file, you can also use your preferred PORT
 
-Run in dev:
+
+## Run in dev:
 ```
 npm run dev
 ```
 
-Run in production:
+## Run in production:
 ```
 npm start
 ```
