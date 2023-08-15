@@ -3,20 +3,8 @@
     <h1 class="title">MEVN CRUD APP</h1>
 
     <form @submit.prevent="addTodo" method="post">
-      <input
-        class="input"
-        v-model="title"
-        type="text"
-        name="name"
-        placeholder="Enter todo"
-      />
-      <input
-        class="input"
-        v-model="description"
-        type="text"
-        name="description"
-        placeholder="Enter Description"
-      />
+      <input class="input" v-model="title" type="text" name="name" placeholder="Enter todo" />
+      <input class="input" v-model="description" type="text" name="description" placeholder="Enter Description" />
       <button type="submit" class="submit-btn">Add Todo</button>
     </form>
     <div class="todo-wrapper">
@@ -28,38 +16,20 @@
             <h3 class="todo-title">{{ todo.title }}</h3>
             <span class="todo-description">{{ todo.description }}</span>
           </div>
+
+          <div class="update-form" id="updateForm">
+            <input type="text" name="updateTitle" id="updateTodo" v-model="updateTitle" />
+            <br />
+            <input type="text" name="updateDescription" id="updateTodo" v-model="updateDescription" />
+          </div>
           <div class="todo-btns">
-            <button
-              type="button"
-              class="edit-btn"
-              @click="updateTodo(todo._id, todo)"
-            >
-              <span v-if="!openEdit">Edit</span><span v-else>Save</span>
+            <button type="button" class="edit-btn" @click="updateTodo($event, todo._id, i, todo)">
+              Edit
             </button>
             <button type="button" class="del-btn" @click="delTodo(todo._id, i)">
               Delete
             </button>
           </div>
-          <form
-            class="update-form"
-            id="updateForm"
-            :class="{ active: openEdit }"
-            method="post"
-          >
-            <input
-              type="text"
-              name="updateTitle"
-              id="updateTodo"
-              v-model="todo.title"
-            />
-            <br />
-            <input
-              type="text"
-              name="updateDescription"
-              id="updateTodo"
-              v-model="todo.description"
-            />
-          </form>
         </li>
       </ul>
     </div>
@@ -76,7 +46,6 @@ export default {
       title: "",
       description: "",
       todos: [],
-      openEdit: false,
       updateTitle: "",
       updateDescription: "",
     };
@@ -95,30 +64,41 @@ export default {
         title: this.title,
         description: this.description,
       });
-      this.todos.push(res.data);
       this.title = "";
       this.description = "";
     },
 
-    async delTodo(id, i) {
+    async delTodo(id) {
       await axios.delete(`api/todoList/${id}`);
-      this.todos.splice(i, 1);
     },
 
-    async updateTodo(id, todo) {
-      if (!this.openEdit) {
-        // this.updateTitle = todo.title
-        // this.updateDescription = todo.description
-        this.openEdit = true;
-      } else {
-        const res = await axios.post(`api/todoList/${id}`, {
-          title: todo.title,
-          description: todo.description,
-        });
-        this.updateTitle = todo.title;
-        this.updateDescription = todo.description;
-        this.openEdit = false;
-      }
+    async updateTodo(event, id, i, todo) {
+      const updateForm = document.getElementsByClassName("update-form");
+      const updateFormArray = [...updateForm];
+      updateFormArray.forEach(async (el) => {
+        if (updateFormArray.indexOf(el) === i) {
+          if (!el.classList.contains("active")) {
+            el.classList.add("active");
+            this.updateTitle = todo.title;
+            this.updateDescription = todo.description;
+            event.target.innerHTML = "Save";
+          } else {
+            const res = await axios.put(`api/todoList/${id}`, {
+              title: this.updateTitle,
+              description: this.updateDescription,
+            });
+            event.target.innerHTML = "Edit";
+            el.classList.remove("active");
+            this.updateTitle = "";
+            this.updateDescription = "";
+          }
+        }
+      });
+    },
+  },
+  watch: {
+    todos() {
+      this.getTodos(); // Watch todos list for any change
     },
   },
 };
