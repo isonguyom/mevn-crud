@@ -7,6 +7,7 @@ Visit this [link](https://mevn-crud.onrender.com/) to see the demo of the app
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
+
 ## Setup
 
 Clone Repo:
@@ -14,14 +15,27 @@ Clone Repo:
 git clone https://github.com/isonguyom/mevn-crud.git
 ```
 
-Enter the server directory:
+Enter the root directory:
 ```
-cd mevn-crud/server
+cd mevn-crud
 ```
 
-Install dependencies:
+### Install dependencies
+Install client dependencies:
 ```
+cd client
 npm install
+```
+
+Install server dependencies
+```
+cd ../server
+npm install
+```
+
+Open in vscode:
+```
+code .
 ```
 
 Create a `.env` file in the `server` folder and the following:
@@ -29,7 +43,7 @@ Create a `.env` file in the `server` folder and the following:
 MONGO_URI='<mongdb_uri>'
 PORT=3000
 ```
-Generate a MongoDB Atlas and add it to your `.env` file, you can also use your preferred PORT
+Add `MONGO_URI` and preferred PORT to your `.env` file
 
 
 ## Run in dev:
