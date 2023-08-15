@@ -10,5 +10,6 @@ Visit this [link](https://mevn-crud.onrender.com/) to see the demo of the app
 ## Setup
 
 Clone Repo:
-`git clone https://github.com/isonguyom/mevn-crud.git`
-
+```
+git clone https://github.com/isonguyom/mevn-crud.git
+```
