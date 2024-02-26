@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 import path from "path";
 import TodoListRoutes from "./routes/api/TodoList.js";
 import homeRouter from "./routes/homeRouter.js";
-import assetsRouter from "./routes/assestsRouter.js";
+import assetsRouter from "./routes/assetsRouter.js";
 
 const app = express();
 const publicPath = path.join(path.resolve(), "../client/public"); // public assets file path
